@@ -1,4 +1,10 @@
 /node_modules
 SPEC.md
-secrets.js
 .nyc_output
+db-data/
+pgadmin-data/
+local.db
+secrets
+! postgres/secrets
+.env
+! sqlite/.env

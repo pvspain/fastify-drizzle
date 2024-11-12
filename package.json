@@ -4,15 +4,17 @@
   "description": "fastify drizzle plugin",
   "main": "index.js",
   "scripts": {
-    "example": "node ./example",
+    "lint-staged": "lint-staged",
+    "postgres:build": "postgres/build.sh",
+    "postgres:example": "node ./example/postgres",
     "pretty": "prettier --write '*.{js,json,md}'",
-    "test": "tap --no-check-coverage",
-    "lint-staged": "lint-staged"
+    "sqlite:build": "sqlite/build.sh",
+    "sqlite:example": "node ./example/sqlite",
+    "sqlite:view": "sqlite/view.sh",
+    "test": "tap --no-check-coverage"
   },
   "lint-staged": {
-    "*.{js,json,md}": [
-      "npm run pretty"
-    ]
+    "*.{js,json,md}": "npm run pretty"
   },
   "repository": {
     "type": "git",
@@ -27,18 +29,24 @@
   "author": "Trey Martin",
   "license": "MIT",
   "dependencies": {
+    "@libsql/client": "^0.14.0",
     "@neondatabase/serverless": "^0.5.2",
-    "drizzle-orm": "^0.27.0",
+    "drizzle-orm": "^0.36.1",
     "fastify": "^4.18.0",
     "fastify-plugin": "^4.5.0",
     "pg": "^8.11.0",
     "postgres": "^3.3.5"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.2.0",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.28.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "^2.8.8",
     "sinon": "^18.0.0",
-    "tap": "^16.3.7"
+    "tap": "^16.3.7",
+    "tsx": "^4.19.2",
+    "uuid": "^11.0.3"
   }
 }

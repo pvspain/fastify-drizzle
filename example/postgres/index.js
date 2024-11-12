@@ -1,9 +1,8 @@
 const fastify = require('fastify')({ logger: true });
-const { dbURI } = require('../secrets');
-
+const { dbURI } = require('../../postgres/secrets');
 const connector = 'postgresjs';
 
-fastify.register(require('../'), { connectionString: dbURI, connector }, (err) => fastify.log.error(err));
+fastify.register(require('../../'), { connectionString: dbURI, connector }, (err) => fastify.log.error(err));
 
 const drizzleConnectionInfo = (fastify) => {
   const drizzleClient = fastify.drizzle;
